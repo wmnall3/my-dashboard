@@ -112,3 +112,35 @@ export const generateSystemStatus = () => ({
   cdn: { status: 'operational', latency: rand(20, 60) },
   payments: { status: Math.random() > 0.15 ? 'operational' : 'degraded', latency: rand(200, 500) },
 });
+
+// Horse racing handicapping products
+const HANDICAPPING_PRODUCTS = [
+  { id: 1, name: 'Daily Double Picks', price: 9.99 },
+  { id: 2, name: 'Triple Crown Analysis', price: 24.99 },
+  { id: 3, name: 'Speed Figure Report', price: 14.99 },
+  { id: 4, name: 'Exacta Edge Guide', price: 19.99 },
+  { id: 5, name: 'Trainer Trends Report', price: 12.99 },
+  { id: 6, name: 'Track Bias Analysis', price: 11.99 },
+  { id: 7, name: 'Superfecta Strategies', price: 29.99 },
+  { id: 8, name: 'Morning Line Value Plays', price: 7.99 },
+  { id: 9, name: 'Pace Scenario Builder', price: 16.99 },
+  { id: 10, name: 'Jockey Performance Stats', price: 8.99 },
+];
+
+// Generate top 5 products purchased (last 24 hours)
+export const generateTopProducts = () => {
+  // Shuffle and pick 5 products
+  const shuffled = [...HANDICAPPING_PRODUCTS].sort(() => Math.random() - 0.5);
+  const selected = shuffled.slice(0, 5);
+
+  return selected
+    .map((product) => {
+      const downloads = rand(45, 280);
+      return {
+        ...product,
+        downloads,
+        revenue: (downloads * product.price).toFixed(2),
+      };
+    })
+    .sort((a, b) => b.downloads - a.downloads); // Sort by downloads descending
+};

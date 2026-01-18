@@ -52,7 +52,29 @@ Grid showing infrastructure status:
 - CDN response time
 - Payment gateway status
 
-### 6. Real-Time Updates
+### 6. Top Products Panel
+Displays the top 5 best-selling digital products over the last 24 hours:
+- **Product Ranking** - Gold (#1), Silver (#2), Bronze (#3) badges for top performers
+- **Product Details** - Name and unit price
+- **Downloads** - Number of downloads in the last 24 hours
+- **Revenue** - Total revenue per product
+- **Summary** - Total downloads and revenue across all top products
+
+**Product Catalog** (Horse Racing Handicapping Documents):
+| Product | Price |
+|---------|-------|
+| Daily Double Picks | $9.99 |
+| Triple Crown Analysis | $24.99 |
+| Speed Figure Report | $14.99 |
+| Exacta Edge Guide | $19.99 |
+| Trainer Trends Report | $12.99 |
+| Track Bias Analysis | $11.99 |
+| Superfecta Strategies | $29.99 |
+| Morning Line Value Plays | $7.99 |
+| Pace Scenario Builder | $16.99 |
+| Jockey Performance Stats | $8.99 |
+
+### 7. Real-Time Updates
 - Dashboard polls for new data every 5 seconds
 - Live indicator in header shows connection status
 - Timestamp shows last update time
@@ -84,6 +106,14 @@ Grid showing infrastructure status:
 | CDN Latency | Edge response time | < 100ms |
 | Payment Gateway | Transaction latency | < 500ms |
 
+### Product Sales
+| Metric | Description | Update Frequency |
+|--------|-------------|------------------|
+| Top 5 Products | Best-selling products by download count | Real-time |
+| Downloads (24h) | Number of downloads per product | Real-time |
+| Revenue per Product | Unit price × downloads | Real-time |
+| Total Revenue | Sum of top 5 product revenue | Real-time |
+
 ## Technical Implementation
 
 ### Stack
@@ -103,7 +133,8 @@ src/
 │   ├── RevenueChart.jsx # Recharts area chart
 │   ├── UserMetrics.jsx  # DAU/MAU + feature adoption
 │   ├── AlertsPanel.jsx  # Priority-sorted alerts
-│   └── SystemStatus.jsx # Infrastructure health
+│   ├── SystemStatus.jsx # Infrastructure health
+│   └── TopProducts.jsx  # Top 5 products with downloads/revenue
 └── data/
     └── mockData.js      # Generators for realistic data
 ```
@@ -145,6 +176,13 @@ src/
 - [ ] How far back should trend data go?
 - [ ] Do we need data export functionality?
 - [ ] Should we add date range selectors for historical analysis?
+
+### Product Data
+- [ ] Should we expand beyond top 5 products?
+- [ ] Do we need product category filtering?
+- [ ] Should we add a time range selector (24h, 7d, 30d)?
+- [ ] Do we need click-through to individual product detail pages?
+- [ ] Should we track additional metrics (refunds, ratings)?
 
 ---
 

@@ -455,6 +455,111 @@ body {
   transition: width 0.5s ease;
 }
 
+/* Top Products */
+.products-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.product-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.product-item:hover {
+  background: var(--border-color);
+}
+
+.product-rank {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-blue);
+  color: white;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.product-item:nth-child(1) .product-rank {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.product-item:nth-child(2) .product-rank {
+  background: linear-gradient(135deg, #94a3b8, #64748b);
+}
+
+.product-item:nth-child(3) .product-rank {
+  background: linear-gradient(135deg, #cd7c32, #a0522d);
+}
+
+.product-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.product-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-price {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.product-stats {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.product-downloads {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.product-downloads .stat-value {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.product-downloads .stat-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-left: 4px;
+}
+
+.product-revenue {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-green);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.products-footer {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-color);
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
 /* Responsive */
 @media (max-width: 1200px) {
   .main-grid {

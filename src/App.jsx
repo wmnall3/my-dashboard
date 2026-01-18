@@ -4,12 +4,14 @@ import { RevenueChart } from './components/RevenueChart';
 import { UserMetrics } from './components/UserMetrics';
 import { AlertsPanel } from './components/AlertsPanel';
 import { SystemStatus } from './components/SystemStatus';
+import { TopProducts } from './components/TopProducts';
 import {
   generateKPIData,
   generateRevenueData,
   generateUserMetrics,
   generateAlerts,
   generateSystemStatus,
+  generateTopProducts,
 } from './data/mockData';
 
 function App() {
@@ -18,6 +20,7 @@ function App() {
   const [userMetrics, setUserMetrics] = useState(generateUserMetrics());
   const [alerts, setAlerts] = useState(generateAlerts());
   const [systemStatus, setSystemStatus] = useState(generateSystemStatus());
+  const [topProducts, setTopProducts] = useState(generateTopProducts());
   const [lastUpdated, setLastUpdated] = useState(new Date());
 
   // Real-time polling - refresh data every 5 seconds
@@ -28,6 +31,7 @@ function App() {
       setUserMetrics(generateUserMetrics());
       setAlerts(generateAlerts());
       setSystemStatus(generateSystemStatus());
+      setTopProducts(generateTopProducts());
       setLastUpdated(new Date());
     }, 5000);
 
@@ -106,6 +110,7 @@ function App() {
         <div className="alerts-panel">
           <AlertsPanel alerts={alerts} />
           <SystemStatus data={systemStatus} />
+          <TopProducts products={topProducts} />
         </div>
       </div>
     </div>
