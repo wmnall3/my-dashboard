@@ -54,7 +54,7 @@ function App() {
         <div className="header-left">
           <div className="logo">
             <div className="logo-icon">M</div>
-            Mission Control
+            Mission Control Dashboard
           </div>
         </div>
         <div className="header-right">
